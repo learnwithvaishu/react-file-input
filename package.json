@@ -3,8 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "echarts": "^3.0.0 || ^4.0.0 || ^5.0.0",
+    "echarts-for-react": "^3.0.2",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "web-vitals": "^3.1.1",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "react-scripts start",
