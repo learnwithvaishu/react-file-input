@@ -3,7 +3,7 @@ import React from 'react';
 import BarChart from 'echarts-for-react';
 
 const BarCharts = ({ data, column }) => {
-  console.log(data);
+  console.log("data " + data);
   return (
     <BarChart
       option={{

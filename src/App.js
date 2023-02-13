@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
 import LineCharts from './LineChart';
 import BarCharts from './BarChart';
+import LoadingSpinner from './LoadingSpinner';
 
 const options = [
   { value: 'Open', label: 'Open' },
@@ -38,10 +39,10 @@ function groupBy(xs, f) {
 }
 
 function App() {
-  const [column, setColumn] = useState("Open");
+  const [column, setColumn] = useState('Open');
   const [data, setData] = useState([]);
   const [chartType, setChartType] = useState('line');
-  const [isLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [barData, setBarData] = useState([]);
 
   const [tableData, setTableData] = useState([]);
@@ -143,6 +144,7 @@ function App() {
     console.log(list);
     setData(list);
     setColumn(columns);
+    setIsLoading(false);
   };
 
   const handleColumnChange = ({ target }) => {
@@ -151,6 +153,7 @@ function App() {
 
   // handle file upload
   const handleFileUpload = (e) => {
+    setIsLoading(true);
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onload = (evt) => {
